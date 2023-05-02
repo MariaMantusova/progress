@@ -42,30 +42,44 @@ class CircularProgress {
 
         this._circumference = circumference;
         this._innerCircle = innerCircle;
-        this._elem = element;
+        this._element = element;
         this._isAnimated = false;
         this._isHidden = false;
-        this.value = 0;
+
+        this.setProgress(0);
 
         svg.append(outerCircle, innerCircle);
         element.append(svg);
     }
 
-    get value() {
-        return this._value;
-    }
 
-    set value(value) {
+    setProgress(value) {
         if (isNaN(value)) {
             value = 0;
         }
         value = Math.min(Math.max(value, 0), 100);
         if (this._value === value) return;
         this._value = value;
-        this._showProgress();
+        this._updateProgress();
     }
 
-    _showProgress() {
+    showProgress() {
+        if (!this._isHidden) {
+            return
+        }
+        this._isHidden = false
+        this._setVisibility()
+    }
+
+    hideProgress() {
+        if (this._isHidden) {
+            return
+        }
+        this._isHidden = true
+        this._setVisibility()
+    }
+
+    _updateProgress() {
         let percent;
 
         if (this._isAnimated) {
@@ -78,4 +92,9 @@ class CircularProgress {
         const offset = circumference - percent / 100 * circumference;
         this._innerCircle.style.strokeDashoffset = offset;
     }
+
+    _setVisibility() {
+        this._isHidden ? this._element.classList.add("progress__hidden") : this._element.classList.remove("progress__hidden");
+    }
+
 }

@@ -21,6 +21,10 @@ body {
     margin-bottom: 100px;
 }
 
+.progress__hidden {
+    visibility: hidden;
+}
+
 .settings {
     list-style: none;
     display: flex;
