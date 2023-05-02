@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="index.css" rel="stylesheet" />
-  <title>Progress</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index.css" rel="stylesheet"/>
+    <link href="progress.css" rel="stylesheet"/>
+    <script defer src="progress.js"></script>
+    <script defer src="index.js"></script>
+    <title>Progress</title>
 </head>
 <body>
 <main class="main">
-  <h1 class="title">Progress</h1>
-  <div id="progress"></div>
-  <ul class="settings">
-    <li class="setting">
-      <input id="value-input" class="setting__value" type="number" min="0" value="0" max="100"/>
-      <label class="setting__name">Value</label>
-    </li>
-    <li class="setting">
-      <input id="animate-checkbox" class="setting__checkbox" type="checkbox"/>
-      <label class="setting__name">Animate</label>
-    </li>
-    <li class="setting">
-      <input id="hide-checkbox" class="setting__checkbox" type="checkbox"/>
-      <label class="setting__name">Hide</label>
-    </li>
-  </ul>
+    <!--  <h1 class="title">Progress</h1>-->
+    <section id="progress"></section>
+    <ul class="settings">
+        <li class="setting">
+            <input id="value-input" class="setting__value" type="number" min="0" value="0" max="100"/>
+            <label class="setting__name">Value</label>
+        </li>
+        <li class="setting">
+            <input id="animate-checkbox" class="setting__checkbox" type="checkbox"/>
+            <label class="setting__name">Animate</label>
+        </li>
+        <li class="setting">
+            <input id="hide-checkbox" class="setting__checkbox" type="checkbox"/>
+            <label class="setting__name">Hide</label>
+        </li>
+    </ul>
 </main>
 </body>
 </html>
