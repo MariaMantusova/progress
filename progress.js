@@ -68,7 +68,7 @@ class CircularProgress {
             return
         }
         this._isHidden = false
-        this._setVisibility()
+        this._toggleVisibility()
     }
 
     hideProgress() {
@@ -76,14 +76,38 @@ class CircularProgress {
             return
         }
         this._isHidden = true
-        this._setVisibility()
+        this._toggleVisibility()
+    }
+
+    startAnimation() {
+        if (this._isAnimated) {
+            return
+        }
+
+        this._isAnimated = true
+        this._updateProgress();
+        this._toggleAnimation()
+    }
+
+    stopAnimation() {
+        if (!this._isAnimated) {
+            return
+        }
+        this._isAnimated = false
+        this._updateProgress();
+        this._toggleAnimation()
     }
 
     _updateProgress() {
         let percent;
 
         if (this._isAnimated) {
-            percent = 45;
+            if (this._value < 5 || this._value > 90) {
+                percent = 45;
+            } else {
+                percent = this._value
+            }
+
         } else {
             percent = this._value;
         }
@@ -93,8 +117,12 @@ class CircularProgress {
         this._innerCircle.style.strokeDashoffset = offset;
     }
 
-    _setVisibility() {
+    _toggleVisibility() {
         this._isHidden ? this._element.classList.add("progress__hidden") : this._element.classList.remove("progress__hidden");
+    }
+
+    _toggleAnimation() {
+        this._isAnimated ? this._innerCircle.classList.add("circle-animation-progress") : this._innerCircle.classList.remove("circle-animation-progress");
     }
 
 }
