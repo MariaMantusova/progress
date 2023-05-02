@@ -19,7 +19,7 @@ class CircularProgress {
 
         const {size, thickness, baseColor, progressColor} = options;
         const radius = size / 2;
-        const realRadius =  radius - thickness * 2;
+        const realRadius = radius - thickness * 2;
         const circumference = realRadius * 2 * Math.PI;
 
         svg.setAttribute("width", size);
@@ -51,7 +51,6 @@ class CircularProgress {
         svg.append(outerCircle, innerCircle);
         element.append(svg);
     }
-
 
     setProgress(value) {
         if (isNaN(value)) {
@@ -124,5 +123,4 @@ class CircularProgress {
     _toggleAnimation() {
         this._isAnimated ? this._innerCircle.classList.add("circle-animation-progress") : this._innerCircle.classList.remove("circle-animation-progress");
     }
-
 }
