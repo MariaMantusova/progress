@@ -56,6 +56,7 @@ class CircularProgress {
         if (isNaN(value)) {
             value = 0;
         }
+
         value = Math.min(Math.max(value, 0), 100);
         if (this._value === value) return;
         this._value = value;
@@ -66,6 +67,7 @@ class CircularProgress {
         if (!this._isHidden) {
             return
         }
+
         this._isHidden = false
         this._toggleVisibility()
     }
@@ -74,6 +76,7 @@ class CircularProgress {
         if (this._isHidden) {
             return
         }
+
         this._isHidden = true
         this._toggleVisibility()
     }
@@ -92,6 +95,7 @@ class CircularProgress {
         if (!this._isAnimated) {
             return
         }
+
         this._isAnimated = false
         this._updateProgress();
         this._toggleAnimation()
@@ -106,7 +110,6 @@ class CircularProgress {
             } else {
                 percent = this._value
             }
-
         } else {
             percent = this._value;
         }
